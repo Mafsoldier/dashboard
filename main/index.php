@@ -18,21 +18,20 @@ require_once("../db_config.php");
 
 <body>
 
-<header>
+ <div class="containerheader">
 
     <p> This is the header</p>
 
- </header>
+</div>
 
 
-
-<main>
+<div class="containercontent">
 
     <p> This is the main page</p>
 
- </main>
+</div>
 
-<footer> 
+<footer class="footer"> 
 
 <p> This is the footer page</p>
 

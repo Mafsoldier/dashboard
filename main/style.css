@@ -1,5 +1,51 @@
-body {
-    color: blueviolet;
-    background: burlywood;
-    height: 100%;
+
+* {
+    margin: 0;
+    padding: 0;
+
 }
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    overflow: hidden;
+    background: darkblue;
+  }
+   
+
+.containerheader {
+    display: grid;
+    background: crimson;
+    height: 100px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+
+.containercontent {
+    display: grid;
+    background: white;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height: ;
+   
+}
+
+.footer {
+    display: grid;
+    background: darkblue;
+    height: 100px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+
+
+
