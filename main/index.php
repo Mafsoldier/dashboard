@@ -1,6 +1,7 @@
 <?php 
 
 require_once("../db_config.php");
+include_once("../superHero.php");
 
 ?>
 
@@ -67,7 +68,14 @@ require_once("../db_config.php");
 
             
     <div class="heroName1 grid-item">
-        <p> Hero name 1 </p>    
+        <p>
+           <?php 
+            getSuperHero($apiKey,$url);
+           
+
+
+            ?>
+        </p>    
     </div>
 
     <div class="itemPlayer1">
@@ -84,13 +92,18 @@ require_once("../db_config.php");
     </div>  
 
     <div class="heroName2 grid-item">
-        <p> Hero name 2 </p>    
+        <p>
+           <?php 
+            getSuperHero($apiKey,$url);
+            
+            ?>
+        </p>     
     </div>
     
     <div class="itemPlayer2">
 
         <!-- <p> PLAYER 2</p>     -->
-        <img src="spiderman.jpg" alt="Player 2">
+        <img src=<?php getSuperHero($apiKey,$url); ?> alt="Player 2">
 
     </div>
 
