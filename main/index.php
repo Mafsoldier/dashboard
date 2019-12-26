@@ -1,7 +1,7 @@
 <?php 
 
 require_once("../db_config.php");
-include_once("../superHero.php");
+require("../superHero.php");
 
 ?>
 
@@ -67,43 +67,47 @@ include_once("../superHero.php");
     </div>
 
             
-    <div class="heroName1 grid-item">
-        <p>
+    <div class="heroName1">
+        <h1>
+
+            <!-- call superhero name 1 -->
            <?php 
-            getSuperHero($apiKey,$url);
-           
-
-
+            $heroId = getSuperHeroId();
+            echo   getSuperHeroName($heroId);
             ?>
-        </p>    
+
+        </h1>    
     </div>
 
-    <div class="itemPlayer1">
+    <div class="imageHero">
 
-        <!-- <p> PLAYER 1</p>     -->
-        <img src="superman.jpg" alt="Player 1">
+            <!-- call superhero image 1 -->
+            <img src= <?php echo GetSuperHeroImage($heroId); ?> alt="Player 1">
 
     </div>
 
-    <div class="itemVS grid-item">
+    <div class="itemVS">
 
-         <p> VS</p>
+            <p> VS</p>
 
     </div>  
 
-    <div class="heroName2 grid-item">
-        <p>
+    <div class="imageHero2">
+        <h1>
+
+            <!-- call superhero name 2 -->
            <?php 
-            getSuperHero($apiKey,$url);
+            $heroId2 = getSuperHeroId();
+            echo getSuperHeroName($heroId2);
             
             ?>
-        </p>     
+        </h1>     
     </div>
     
     <div class="itemPlayer2">
 
-        <!-- <p> PLAYER 2</p>     -->
-        <img src=<?php getSuperHero($apiKey,$url); ?> alt="Player 2">
+            <!-- call superhero image 2 -->
+            <img src=<?php echo GetSuperHeroImage($heroId2); ?> alt="Player 2">
 
     </div>
 

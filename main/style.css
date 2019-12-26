@@ -16,7 +16,7 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
     overflow: hidden;
-    background: darkblue;
+    background: pink;
   }
    
 
@@ -69,19 +69,22 @@ body {
     grid-row-end: 2 ;
     grid-column-start: 2;
     grid-column-end: 3;
+    justify-self: center;
+    
 
 }
 
-.itemPlayer1{
+.imageHero{
 
-    background-color: blue;
+    background-color: pink;
     /* width: 500px; */
-    grid-column: span 2;
-    grid-row: span 2 ;
+    /* grid-column: span 2;
+    grid-row: span 2 ; */
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 4 ;
+    justify-self: center;
 }
 .itemVS{
 
@@ -100,22 +103,24 @@ body {
     grid-row-end: 2 ;
     grid-column-start: 4;
     grid-column-end: 5;
+    justify-self: center;
 }
 
-.itemPlayer2{
+.imageHero2{
 
-    background-color: rgb(54, 10, 175);
+    background-color: pink(54, 10, 175);
     /* width: 500px; */
-    grid-column: span 2;
-    grid-row: span 2 ;
+    /* grid-column: span 2;
+    grid-row: span 2 ; */
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 4 ;
+    justify-self: center;
 }
 
 .scoreCounter {
-
+    background: pink;
 }
 
 
@@ -123,8 +128,8 @@ body {
 
     background-color: pink;
     /* width: 500px; */
-    grid-column: span 2;
-    grid-row: span 2 ;
+    /* grid-column: span 2;
+    grid-row: span 2 ; */
     grid-column-start: 5;
     grid-column-end: -1;
     grid-row-start: 1;
@@ -138,7 +143,7 @@ body {
 }
 .headeritem2 {
     grid-column-start: 2;
-  grid-column-end: 3;
+    grid-column-end: 3;
     
 }
 .headeritem3 {
@@ -149,17 +154,13 @@ body {
 
 
   img {
-    object-fit: fill;
-    width: 100%;
-    max-height: 100%; 
+    object-fit: cover;
+    padding-bottom: 50px;
+ 
     
   }
 
-  .grid-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
 
 
 
