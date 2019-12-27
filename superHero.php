@@ -56,4 +56,3 @@ $url = "https://superheroapi.com/api/$apiKey/";
 
 
 ?>
->

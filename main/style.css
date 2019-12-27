@@ -1,166 +1,89 @@
-
 * {
-    margin: 0;
-    padding: 0;
-
+    margin:0;
+    padding:0;
 }
-
-html {
-    height: 100%;
-    overflow: hidden;
-}
-
 
 body {
-    min-height: 100%;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    overflow: hidden;
-    background: pink;
-  }
-   
-
-.containerheader {
-    display: grid;
-    background: crimson;
-    height: 10vh;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    grid-template-columns: 25vw 50vw 25vw;
-}
-
-
-.containercontent {
-    display: grid;
-    background: pink;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    height: 80vh;
-    grid-template-columns: 15vw auto auto auto 15vw;
-    grid-template-rows: 20vh 20vh 20vh 20vh;
- 
-}
-
-.footer {
-    display: grid;
-    background: darkblue;
-    height: 10vh;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    background: wheat;  
 
 }
 
-.item1{
+/* Alles over de header container */
 
-    background-color: pink;
-    /* width: 500px; */
-    grid-column: span 2;
-    grid-row: span 2 ;
+.containerHeader{
+    display: grid;
+    grid-template-columns: 1fr [col-start] 1fr [col-start] 1fr [col-start];  
+    height: 20%;
+  
+}
+
+.headeritemleft{
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: -1 ;
-
+    align-self: center;
+    justify-self: center;
+    width: 1fr;
 }
-
-.heroNameLeft{
-
-    grid-row-start: 1;
-    grid-row-end: 2 ;
+.headeritemmiddle{
     grid-column-start: 2;
     grid-column-end: 3;
+    align-self: center;
     justify-self: center;
-    
-
+    width: 1fr;
 }
-
-.imageHeroLeft{
-
-    background-color: pink;
-    /* width: 500px; */
-    /* grid-column: span 2;
-    grid-row: span 2 ; */
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 4 ;
-    justify-self: center;
-}
-.itemVS{
-
-    background-color: pink;
-    /* width: 500px; */
-    grid-column: span 2;
-    grid-row: span 2 ;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4 ;
-}
-
-.heroNameRight{
-    grid-row-start: 1;
-    grid-row-end: 2 ;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    justify-self: center;
-}
-
-.imageHeroRight{
-
-    background-color: pink(54, 10, 175);
-    /* width: 500px; */
-    /* grid-column: span 2;
-    grid-row: span 2 ; */
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 4 ;
-    justify-self: center;
-}
-
-.scoreCounter {
-    background: pink;
-}
-
-
-.item5{
-
-    background-color: pink;
-    /* width: 500px; */
-    /* grid-column: span 2;
-    grid-row: span 2 ; */
-    grid-column-start: 5;
-    grid-column-end: -1;
-    grid-row-start: 1;
-    grid-row-end: -1 ;
-}
-
-.headeritem1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-
-}
-.headeritem2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    
-}
-.headeritem3 {
+.headeritemright{
     grid-column-start: 3;
     grid-column-end: -1;
-    
+    align-self: center;
+    justify-self: center;
+    width: 1fr;
+}
+
+/* Alles over de Contentcontainer */
+.containercontent{
+    display: flex;
+    flex-direction: row;
+    background: cadetblue;
+    height: 50%;
+}
+
+.itemContainerContent {
+    flex-grow: 1;
+    width: 1fr;
+}
+
+/* dit is een container */
+.heroBox {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    width: 1fr;
+}
+
+.itemHeroBox{
+    background: green;
+    flex-grow: 1;
+    width: 1fr;
 }
 
 
-  img {
-    height: 100%;
- 
-    
-  }
+.containerFooter{
+    height: 20%;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
 
 
 
 
 
 
+
+
+
+
+
+/* Alles over de footer container */

@@ -1,115 +1,83 @@
 <?php 
+    require("../superHero.php");
 
-require_once("../db_config.php");
-require("../superHero.php");
-
+    // De functies aanroepen die we nodig hebben
+    $superHeroRight = getRandomSuperHero();
+    $superHeroLeft = getRandomSuperHero();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-
 
 <body>
 
- <div class="containerheader">
-
-    <div class="headeritem1">
-        <p> This is the header</p>
-    </div>
-    <div class="headeritem2">
-        <p> This is the header</p>
-    </div>
-    <div class="headeritem3">
-        <p> This is the header</p>
-    </div>
-
-
-    
-
-</div>
-
-
-<!-- 
-//foreach maken en flexbox toevoegen.  -->
-
-
-
-
-
-
-
-<div class="containercontent">
-
-    <div class="item1">
-
-        
+    <div class="containerHeader">
+        <div class="headeritemLeft">
+            <p> This is the left header</p>
+        </div>
+        <div class="headeritemMiddle">
+            <p> This is the middle header</p>
+        </div>
+        <div class="headeritemRight">
+            <p> This is the right header</p>
+        </div>
     </div>
 
-    <div class="scoreCounter">
+        <!-- 
+        //foreach maken en flexbox toevoegen.  -->
 
-    </div>
+    <div class="containercontent">
 
         <!-- //loopje foreach maken en de html hier in doen en de heroes. -->
-        <?php $heroes = init();?>
-            
-    <div class="heroNameLeft">
-        <h1>
-            <!-- call superhero name 1 -->
-           <?php 
-            $superHeroLeft = getRandomSuperHero();
-            echo $superHeroLeft['name']; 
-            ?>
-        </h1>    
+            <?php $heroes = init();?>
+                
+        
+        <div class="heroBox itemContainerContent">
+            <div class="itemHeroBox">
+                <h1>
+                        <!-- call superhero name 1 -->
+                    <?php 
+                        echo $superHeroLeft['name']; 
+                    ?>
+                </h1> 
+            </div> 
+
+            <div class="itemHeroBox">
+                <!-- call superhero image 1 -->
+                <img class="img" src= <?php echo $superHeroLeft['image']; ?> alt="Player 1">
+            </div>
+        </div> 
+        
+        <div class="heroBox itemContainerContent">    
+            <div class="itemHeroBox">
+                <h1>
+                        <!-- call superhero name 2 -->
+                    <?php 
+                        echo $superHeroRight['name'];  
+                    ?>
+                </h1>     
+            </div>
+
+            <div class="itemHeroBox">
+                <!-- call superhero image 2 -->
+                <img class="img" src=<?php echo $superHeroRight['image']; ?> alt="Player 2">
+            </div>
+        </div>
     </div>
-    <div class="imageHeroLeft">
-        <!-- call superhero image 1 -->
-        <img src= <?php echo $superHeroLeft['image']; ?> alt="Player 1">
-    </div>
-    <div class="itemVS">
-        <p> VS</p>
-    </div>  
-    <div class="HeroNameRight">
-        <h1>
-            <!-- call superhero name 2 -->
-           <?php 
-                $superHeroRight = getRandomSuperHero();
-                echo $superHeroRight['name'];  
-            ?>
-        </h1>     
-    </div>
-    
-    <div class="imageHeroRight">
-        <!-- call superhero image 2 -->
-        <img src=<?php echo $superHeroRight['image']; ?> alt="Player 2">
-    </div>
+        
 
-    <div class="item5"></div>  
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer"> 
-
-<p> This is the footer page</p>
-
+<footer class="containerFooter"> 
+        <div>
+            <p> This is the footer page</p>
+        </div>
 </footer>
 
 
