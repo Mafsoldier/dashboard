@@ -63,7 +63,7 @@ body {
 
 }
 
-.heroName1{
+.heroNameLeft{
 
     grid-row-start: 1;
     grid-row-end: 2 ;
@@ -74,7 +74,7 @@ body {
 
 }
 
-.imageHero{
+.imageHeroLeft{
 
     background-color: pink;
     /* width: 500px; */
@@ -98,7 +98,7 @@ body {
     grid-row-end: 4 ;
 }
 
-.heroName2{
+.heroNameRight{
     grid-row-start: 1;
     grid-row-end: 2 ;
     grid-column-start: 4;
@@ -106,7 +106,7 @@ body {
     justify-self: center;
 }
 
-.imageHero2{
+.imageHeroRight{
 
     background-color: pink(54, 10, 175);
     /* width: 500px; */
@@ -154,8 +154,7 @@ body {
 
 
   img {
-    object-fit: cover;
-    padding-bottom: 50px;
+    height: 100%;
  
     
   }

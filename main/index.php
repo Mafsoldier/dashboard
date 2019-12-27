@@ -37,8 +37,8 @@ require("../superHero.php");
 </div>
 
 
-
-
+<!-- 
+//foreach maken en flexbox toevoegen.  -->
 
 
 
@@ -53,75 +53,47 @@ require("../superHero.php");
         
     </div>
 
-
-    <div class="heroName1">
-
-    </div>
-
-    <div class= "heroName2">
-
-    </div>
-
     <div class="scoreCounter">
 
     </div>
 
+        <!-- //loopje foreach maken en de html hier in doen en de heroes. -->
+        <?php $heroes = init();?>
             
-    <div class="heroName1">
+    <div class="heroNameLeft">
         <h1>
-
             <!-- call superhero name 1 -->
            <?php 
-            $heroId = getSuperHeroId();
-            echo   getSuperHeroName($heroId);
+            $superHeroLeft = getRandomSuperHero();
+            echo $superHeroLeft['name']; 
             ?>
-
         </h1>    
     </div>
-
-    <div class="imageHero">
-
-            <!-- call superhero image 1 -->
-            <img src= <?php echo GetSuperHeroImage($heroId); ?> alt="Player 1">
-
+    <div class="imageHeroLeft">
+        <!-- call superhero image 1 -->
+        <img src= <?php echo $superHeroLeft['image']; ?> alt="Player 1">
     </div>
-
     <div class="itemVS">
-
-            <p> VS</p>
-
+        <p> VS</p>
     </div>  
-
-    <div class="imageHero2">
+    <div class="HeroNameRight">
         <h1>
-
             <!-- call superhero name 2 -->
            <?php 
-            $heroId2 = getSuperHeroId();
-            echo getSuperHeroName($heroId2);
-            
+                $superHeroRight = getRandomSuperHero();
+                echo $superHeroRight['name'];  
             ?>
         </h1>     
     </div>
     
-    <div class="itemPlayer2">
-
-            <!-- call superhero image 2 -->
-            <img src=<?php echo GetSuperHeroImage($heroId2); ?> alt="Player 2">
-
+    <div class="imageHeroRight">
+        <!-- call superhero image 2 -->
+        <img src=<?php echo $superHeroRight['image']; ?> alt="Player 2">
     </div>
 
-    <div class="item5">
-
-        
-
-    </div>  
+    <div class="item5"></div>  
 
 </div>
-
-
-
-
 
 
 
