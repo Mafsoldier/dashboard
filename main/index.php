@@ -1,9 +1,8 @@
 <?php 
     require("../superHero.php");
-
+    
     // De functies aanroepen die we nodig hebben
-    $superHeroRight = getRandomSuperHero();
-    $superHeroLeft = getRandomSuperHero();
+    $superheroes = init();
 ?>
 
 
@@ -15,18 +14,19 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="superhero.ico"/>
 </head>
 
 <body>
 
     <div class="containerHeader">
-        <div class="headeritemLeft">
+        <div class="headerItem">
             <p> This is the left header</p>
         </div>
-        <div class="headeritemMiddle">
+        <div class="headerItem">
             <p> This is the middle header</p>
         </div>
-        <div class="headeritemRight">
+        <div class="headerItem">
             <p> This is the right header</p>
         </div>
     </div>
@@ -34,45 +34,30 @@
         <!-- 
         //foreach maken en flexbox toevoegen.  -->
 
+    <form action="#" method="post">
     <div class="containercontent">
 
         <!-- //loopje foreach maken en de html hier in doen en de heroes. -->
-            <?php $heroes = init();?>
-                
-        
+            
+        <?php foreach($superheroes as $superHero) { ?>
+
         <div class="heroBox itemContainerContent">
             <div class="itemHeroBox">
                 <h1>
-                        <!-- call superhero name 1 -->
+                        <!--call superhero name-->
                     <?php 
-                        echo $superHeroLeft['name']; 
+                        echo $superHero['name'];
                     ?>
                 </h1> 
             </div> 
-
             <div class="itemHeroBox">
-                <!-- call superhero image 1 -->
-                <img class="img" src= <?php echo $superHeroLeft['image']; ?> alt="Player 1">
+                        <!--call superhero image and make it a button to submit-->
+                <input type="image" class="img" src= <?php echo $superHero['image']; ?> alt="No image" name=<?php echo $superHero['name']; ?> id=<?php echo $superHero['heroId']; ?>>
             </div>
         </div> 
-        
-        <div class="heroBox itemContainerContent">    
-            <div class="itemHeroBox">
-                <h1>
-                        <!-- call superhero name 2 -->
-                    <?php 
-                        echo $superHeroRight['name'];  
-                    ?>
-                </h1>     
-            </div>
-
-            <div class="itemHeroBox">
-                <!-- call superhero image 2 -->
-                <img class="img" src=<?php echo $superHeroRight['image']; ?> alt="Player 2">
-            </div>
-        </div>
+        <?php }; ?>
     </div>
-        
+    </form>
 
 <footer class="containerFooter"> 
         <div>

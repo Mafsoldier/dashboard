@@ -5,17 +5,13 @@ $apiKey = "2918698538154268";
 // url inclusief de api key
 $url = "https://superheroapi.com/api/$apiKey/";
 
-
-
-
-
+// deze functie roept alle functies aan
   function init(){
     return [
       'superHeroLeft' => getRandomSuperHero(),
       'superHeroRight' => getRandomSuperHero(),
     ];
   }
-
 
 
   // snelle check om te kijken wat er in de array zit die we terug krijgen
