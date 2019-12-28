@@ -3,8 +3,18 @@
     
     // De functies aanroepen die we nodig hebben
     $superheroes = init();
-?>
+    $result = whoWins($superheroes);
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        echo "form submitted!";
+        var_dump($_POST);
+        if ($_POST['value'] == 1) {
+            echo 'left';
+        }else {
+            echo 'right';
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,46 +41,43 @@
         </div>
     </div>
 
-        <!-- 
-        //foreach maken en flexbox toevoegen.  -->
-
-    <form action="#" method="post">
+    
     <div class="containercontent">
-
-        <!-- //loopje foreach maken en de html hier in doen en de heroes. -->
-            
-        <?php foreach($superheroes as $superHero) { ?>
-
-        <div class="heroBox itemContainerContent">
-            <div class="itemHeroBox">
-                <h1>
-                        <!--call superhero name-->
-                    <?php 
-                        echo $superHero['name'];
-                    ?>
-                </h1> 
-            </div> 
-            <div class="itemHeroBox">
-                        <!--call superhero image and make it a button to submit-->
-                <input type="image" class="img" src= <?php echo $superHero['image']; ?> alt="No image" name=<?php echo $superHero['name']; ?> id=<?php echo $superHero['heroId']; ?>>
-            </div>
-        </div> 
-        <?php }; ?>
+   
+        <?php 
+        $count = 0;
+        foreach($superheroes as $superHero) { 
+            $count++;
+    
+        ?>
+        
+        <form class="heroBox itemContainerContent" action="#" method="post">  
+            <!-- <div class="heroBox itemContainerContent"> -->
+                <div class="itemHeroBox">
+                    <h1>
+                            <!--call superhero name-->
+                        <?php 
+                            echo $superHero['name'];
+                        ?>
+                    </h1> 
+                </div> 
+                <div class="itemHeroBox">
+                            <!--call superhero image and make it a button to submit-->
+                    <input type="hidden" name='value'; value= <?php echo $count; ?>>        
+                    <input type="image" class="img" src= <?php echo $superHero['image']; ?> alt="No image">
+                </div>
+            <!-- </div> -->
+        </form> 
+        <?php  }; ?>
     </div>
-    </form>
+    
 
 <footer class="containerFooter"> 
         <div>
+        <?php echo $result; ?>
             <p> This is the footer page</p>
         </div>
 </footer>
 
-
-    
 </body>
-
-
-
-
-
 </html>

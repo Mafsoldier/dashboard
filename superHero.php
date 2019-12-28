@@ -40,14 +40,62 @@ $url = "https://superheroapi.com/api/$apiKey/";
       $array = json_decode($json, true);
       $name = $array['name'];
       $image = $array['image']['url'];
-
+      $strength = $array['powerstats']['strength'];
+      $intelligence = $array['powerstats']['intelligence'];
+      $speed = $array['powerstats']['speed'];
+      $durability = $array['powerstats']['durability'];
+      $power = $array['powerstats']['power'];
+      $combat = $array['powerstats']['combat'];
+      $overallPower = overallPower($strength, $intelligence, $speed, $durability, $power, $combat);
+   
             //zo return je een array... 
       return [
         'name' => $name,
         'image' => $image,
         'heroId' => $heroId,
+        'overallPower' => $overallPower,
+
       ];
   }
+
+  function whoWins($superHeroes){
+
+      $superHeroLeftPoints = $superHeroes['superHeroLeft']['name'];
+      $superHeroRightPoints = $superHeroes['superHeroRight']['name'];
+
+      var_dump($superHeroes);
+
+
+      if ($superHeroLeftPoints == $superHeroRightPoints){
+
+          echo "it is a draw!";
+          return $result = "draw";
+      }elseif ($superHeroLeftPoints > $superHeroRightPoints){
+
+          echo "Left superHero wins!";
+          return $result = "left";
+      }else {
+          echo "Right superHero wins!";
+          return $result = "right";
+      }
+
+  }
+
+function overallPower($strength, $intelligence, $speed, $durability, $power, $combat) {
+  $sum = 0;
+  $arguments = func_get_args();
+  
+  foreach($arguments as $argument){
+     
+    settype($argument, "integer");
+    if (is_integer($argument)){
+      $sum += $argument;
+    }else {
+      $sum++;
+    }
+  }
+  return $sum;
+}
 
 
 
