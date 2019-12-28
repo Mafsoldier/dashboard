@@ -1,18 +1,32 @@
 <?php 
     require("../superHero.php");
+   
     
     // De functies aanroepen die we nodig hebben
     $superheroes = init();
     $result = whoWins($superheroes);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        echo "form submitted!";
-        var_dump($_POST);
+
         if ($_POST['value'] == 1) {
-            echo 'left';
+            if($_POST['winner'] == 1){
+                echo "you win! (you have chosen the left hero";
+            }else {
+                echo 'you lose! (you have chosen the left hero';
+            }
+            
+        }elseif($_POST['value'] == 2) {
+            if($_POST['winner'] == 2){
+                echo "you win! (you have chosen the right hero";
+            }else {
+                echo 'you lose! (you have chosen the right hero';
+            }
+            
         }else {
-            echo 'right';
-        }
+             echo "it is a draw!";
+            }
+    }else {
+        echo "no form submitted";
     }
 ?>
 
@@ -31,14 +45,9 @@
 
     <div class="containerHeader">
         <div class="headerItem">
-            <p> This is the left header</p>
+            <h1> WHO WINS? </h1>
         </div>
-        <div class="headerItem">
-            <p> This is the middle header</p>
-        </div>
-        <div class="headerItem">
-            <p> This is the right header</p>
-        </div>
+
     </div>
 
     
@@ -63,15 +72,18 @@
                 </div> 
                 <div class="itemHeroBox">
                             <!--call superhero image and make it a button to submit-->
-                    <input type="hidden" name='value'; value= <?php echo $count; ?>>        
-                    <input type="image" class="img" src= <?php echo $superHero['image']; ?> alt="No image">
+                    <input type="hidden" name='value'; value= <?php echo $count; ?>>  
+                    <input type="hidden" name='winner'; value= <?php echo $result; ?>>      
+                    <input type="image" class="img element" src= <?php echo $superHero['image']; ?> alt="No image">
+                    
+                    
                 </div>
             <!-- </div> -->
         </form> 
         <?php  }; ?>
     </div>
     
-
+    
 <footer class="containerFooter"> 
         <div>
         <?php echo $result; ?>

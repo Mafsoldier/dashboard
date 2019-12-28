@@ -54,7 +54,6 @@ $url = "https://superheroapi.com/api/$apiKey/";
         'image' => $image,
         'heroId' => $heroId,
         'overallPower' => $overallPower,
-
       ];
   }
 
@@ -63,20 +62,17 @@ $url = "https://superheroapi.com/api/$apiKey/";
       $superHeroLeftPoints = $superHeroes['superHeroLeft']['name'];
       $superHeroRightPoints = $superHeroes['superHeroRight']['name'];
 
-      var_dump($superHeroes);
-
+      // var_dump($superHeroes);
 
       if ($superHeroLeftPoints == $superHeroRightPoints){
 
           echo "it is a draw!";
-          return $result = "draw";
+          return $result = "0";
       }elseif ($superHeroLeftPoints > $superHeroRightPoints){
 
-          echo "Left superHero wins!";
-          return $result = "left";
+          return $result = "1";
       }else {
-          echo "Right superHero wins!";
-          return $result = "right";
+          return $result = "2";
       }
 
   }

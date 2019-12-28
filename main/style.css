@@ -74,3 +74,22 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
 }
+
+
+.element {
+    animation-name: bounce;
+    animation-duration: 3s;
+  }
+  
+ 
+  
+  @keyframes bounce {
+    from {
+        border-radius: 25%;
+    }
+  
+    to {
+        
+        border-radius: 50%;
+    }
+  }
