@@ -6,7 +6,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background: wheat;  
+    background: whitesmoke; 
 }
 
 /* Alles over de header container */
@@ -30,34 +30,18 @@ body {
 /* Alles over de Contentcontainer */
 .containercontent{
     display: flex;
-    flex-direction: row;
-    background: cadetblue;
-    flex-grow: 3;
-}
-
-.itemContainerContent {
-    flex-grow: 1;
-    width: 1fr;
-}
-
-/* dit is een container */
-.heroBox {
-    display: flex;
-    flex-direction: column; 
+    flex-direction: right;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
     text-align: center;
-    width: 1fr;
+    
 }
 
 .itemHeroBox{
-    background: green;
-    flex-grow: 1;
-    width: 1fr;
-}
+    flex-basis: 300px;
+    margin-top: 20px;
 
-.containerFooter{
-    background: red;
-    flex-grow: 1;
-      
 }
 
 img {
@@ -67,29 +51,59 @@ img {
 
 }
 
+.button {
+    
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: solid;
+    cursor: crosshair;
+    border-radius: 5px;
+  }
+  
+.button:hover {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: solid;
+    cursor: crosshair;
+    border-radius: 5px;
+  } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Alles over de footer container */
+.containerFooter{
+    background: red;
+    flex-grow: 1;
+      
+}
+
+
+
+/* Overige */
 
 h1 {
     white-space: nowrap;
     overflow: hidden;
 }
 
-
-.element {
-    animation-name: bounce;
-    animation-duration: 3s;
-  }
-  
- 
-  
-  @keyframes bounce {
-    from {
-        border-radius: 25%;
-    }
-  
-    to {
-        
-        border-radius: 50%;
-    }
-  }

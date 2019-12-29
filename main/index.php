@@ -1,7 +1,7 @@
 <?php 
     require("../superHero.php");
-   
-    
+
+
     // De functies aanroepen die we nodig hebben
     $superheroes = init();
     $result = whoWins($superheroes);
@@ -38,7 +38,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <link rel="stylesheet" href="style.css" type="text/css">
-        <link rel="shortcut icon" type="image/x-icon" href="superhero.ico"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        
 </head>
 
 <body>
@@ -60,36 +61,26 @@
     
         ?>
         
-        <form class="heroBox itemContainerContent" action="#" method="post">  
+        <form class="heroBox" action="#" method="post">  
             <!-- <div class="heroBox itemContainerContent"> -->
                 <div class="itemHeroBox">
-                    <h1>
-                            <!--call superhero name-->
-                        <?php 
-                            echo $superHero['name'];
-                        ?>
-                    </h1> 
+                <input class="button" type="submit" value="Ik kies <?php echo $superHero['name'];?>"> 
                 </div> 
                 <div class="itemHeroBox">
                             <!--call superhero image and make it a button to submit-->
                     <input type="hidden" name='value'; value= <?php echo $count; ?>>  
-                    <input type="hidden" name='winner'; value= <?php echo $result; ?>>      
-                    <input type="image" class="img element" src= <?php echo $superHero['image']; ?> alt="No image">
-                    
-                    
+                    <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
+                    <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
+                </div>     
+                <div class="itemHeroBox">    
+                           
                 </div>
-            <!-- </div> -->
         </form> 
         <?php  }; ?>
     </div>
     
     
-<footer class="containerFooter"> 
-        <div>
-        <?php echo $result; ?>
-            <p> This is the footer page</p>
-        </div>
-</footer>
+
 
 </body>
 </html>
