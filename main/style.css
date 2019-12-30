@@ -42,6 +42,13 @@ body {
     flex-basis: 300px;
     margin-top: 20px;
 
+
+}
+.whoWin{
+    text-align: center;
+    background: green;
+    vertical-align: center;
+
 }
 
 img {

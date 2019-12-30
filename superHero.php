@@ -66,7 +66,6 @@ $url = "https://superheroapi.com/api/$apiKey/";
 
       if ($superHeroLeftPoints == $superHeroRightPoints){
 
-          echo "it is a draw!";
           return $result = "0";
       }elseif ($superHeroLeftPoints > $superHeroRightPoints){
 

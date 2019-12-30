@@ -5,28 +5,55 @@
     // De functies aanroepen die we nodig hebben
     $superheroes = init();
     $result = whoWins($superheroes);
+    $whoWins = '';
+    
+    session_start();
+
+    $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
+    
+    if($is_page_refreshed) {
+        session_unset();
+        $_SESSION['playerWins'] = 0;
+        $_SESSION['pcWins'] = 0;
+    } 
+
+    if (!isset($_SESSION['playerWins'])){
+        $_SESSION['playerWins'] = 0;
+    }
+
+    if (!isset($_SESSION['pcWins'])){
+        $_SESSION['pcWins'] = 0;
+    }
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if ($_POST['value'] == 1) {
             if($_POST['winner'] == 1){
-                echo "you win! (you have chosen the left hero";
+                $whoWins = "You've won!";
+                $_SESSION['playerWins']++;
             }else {
-                echo 'you lose! (you have chosen the left hero';
+                $whoWins = "You've lost!";
+                $_SESSION['pcWins']++;
             }
             
         }elseif($_POST['value'] == 2) {
             if($_POST['winner'] == 2){
-                echo "you win! (you have chosen the right hero";
+                $whoWins = "You've won!";
+                $_SESSION['playerWins']++;
             }else {
-                echo 'you lose! (you have chosen the right hero';
+        
+                $whoWins = "You've lost!";
+                $_SESSION['pcWins']++;
             }
             
         }else {
-             echo "it is a draw!";
+            $whoWins = "Wow! it was a draw!";
             }
     }else {
-        echo "no form submitted";
+        $whoWins = " ";
+        $_SESSION['playerWins'] = 0;
+        $_SESSION['pcWins'] = 0;
     }
 ?>
 
@@ -46,8 +73,15 @@
 
     <div class="containerHeader">
         <div class="headerItem">
+        <h1> You've lost: <?php echo $_SESSION['pcWins'];?> times! </h1>
+        </div>
+        <div class="headerItem">
             <h1> WHO WINS? </h1>
         </div>
+        <div class="headerItem">
+            <h1> You've won: <?php echo $_SESSION['playerWins'];?> times! </h1>
+        </div>
+        
 
     </div>
 
@@ -78,6 +112,13 @@
         </form> 
         <?php  }; ?>
     </div>
+
+    
+    <form action='#' method='post'> 
+    <div class="itemHeroBox whoWin"> <h1> <?php echo $whoWins; ?> </h1> </div>
+    <input type="hidden" name='reset' value='reset'> 
+    <input class="button" type="submit" value="START OVER"> 
+    </form>
     
     
 
