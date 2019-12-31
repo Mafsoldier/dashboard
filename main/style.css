@@ -13,8 +13,11 @@ body {
 
 .containerHeader{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     background: olive;
-    flex-grow: 4;
+    flex-grow: 3;
+    justify-content: center;
     
 }
 
@@ -46,7 +49,7 @@ body {
 }
 .whoWin{
     text-align: center;
-    background: green;
+    background: whitesmoke;
     vertical-align: center;
 
 }
@@ -67,6 +70,7 @@ img {
     border: solid;
     cursor: crosshair;
     border-radius: 5px;
+    margin: 10px;
   }
   
 .button:hover {
@@ -78,22 +82,6 @@ img {
     cursor: crosshair;
     border-radius: 5px;
   } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -112,5 +100,6 @@ img {
 h1 {
     white-space: nowrap;
     overflow: hidden;
+    margin: 5px;
 }
 
