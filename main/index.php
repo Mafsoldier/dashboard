@@ -8,55 +8,39 @@
     $whoWins = '';
     
     session_start();
-
+    // check if the page is refreshed
     $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
     
     if (!isset($_SESSION['playerWins']) || !isset($_SESSION['pcWins'])){
-        $_SESSION['playerWins'] = 0;
-        $_SESSION['pcWins'] = 0;
+                $whoWins = resetScores();
     }
 
    
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if ($is_page_refreshed){
-
-            $whoWins = " ";
-            $_SESSION['playerWins'] = 0;
-            $_SESSION['pcWins'] = 0;
-
-            
+                $whoWins = resetScores();
         }elseif ($_POST['value'] == 'reset'){
-            
-            $whoWins = " ";
-            $_SESSION['playerWins'] = 0;
-            $_SESSION['pcWins'] = 0;
-
+                $whoWins = resetScores();
         }else {
 
-        if ($_POST['value'] == 1) {
-            if($_POST['winner'] == 1){
-                $whoWins = "You've won!";
-                $_SESSION['playerWins']++;
+            if ($_POST['value'] == 1) {
+                if($_POST['winner'] == 1){
+                    $whoWins = playerWins();
+                }else {
+                    $whoWins = pcWins();
+                }
+                
+            }elseif($_POST['value'] == 2) {
+                if($_POST['winner'] == 2){
+                    $whoWins = playerWins();
+                }else {
+                    $whoWins = pcWins();
+                }
             }else {
-                $whoWins = "You've lost!";
-                $_SESSION['pcWins']++;
-            }
-            
-        }elseif($_POST['value'] == 2) {
-            if($_POST['winner'] == 2){
-                $whoWins = "You've won!";
-                $_SESSION['playerWins']++;
-            
-            }else {
-                $whoWins = "You've lost!";
-                $_SESSION['pcWins']++;
-            }
-
-        }else {
-            $whoWins = "Wow! it was a draw!";
-            }
-    }
+                $whoWins = "Wow! it was a draw!";
+                }
+        }
 }
 ?>
 
@@ -84,13 +68,9 @@
         <div class="headerItem">
             <h1> You've won: <?php echo $_SESSION['playerWins'];?> times! </h1>
         </div>
-        
-
     </div>
 
-    
     <div class="containercontent">
-   
         <?php 
         $count = 0;
         foreach($superheroes as $superHero) { 
@@ -107,12 +87,10 @@
                 <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
                 <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
             </div>     
-
         </form> 
         
         <form action='#' method='post'> 
             <div class="itemHeroBox whoWin"> 
-                
                 <input type="hidden" name='value' value='reset'> 
                 <input class="button" type="submit" value="Reset">
                 <h1> <?php echo $whoWins; ?> </h1>  
@@ -131,7 +109,7 @@
                                 <!--call superhero image and make it a button to submit-->
                     <input type="hidden" name='value'; value= <?php echo $count; ?>>  
                     <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
-                        <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
+                    <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
                 </div>     
    
             </form> 

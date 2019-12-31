@@ -92,6 +92,22 @@ function overallPower($strength, $intelligence, $speed, $durability, $power, $co
   return $sum;
 }
 
+function resetScores(){
+  $_SESSION['playerWins'] = 0;
+  $_SESSION['pcWins'] = 0;
+  return $whoWins = " ";
+}
+
+function pcWins(){
+  $_SESSION['pcWins']++;
+  return $whoWins = "You've lost!";
+}
+
+function playerWins(){
+  $_SESSION['playerWins']++;
+  return $whoWins = "You've won!";
+}
+
 
 
 ?>
