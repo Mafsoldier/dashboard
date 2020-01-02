@@ -1,5 +1,5 @@
-<?php
 
+<?php
 // require_once("db_config.php");
 
 
@@ -65,5 +65,91 @@
 
 
 //     }
-//  ?>
+//  
+
+
+
+
+
+// require_once("db_config.php");
+
+// $query = " SELECT * FROM superhero";
+
+// if ($results = $db_connection->query($query)) {
+//     foreach ($results as $result) {
+
+//         if ($result['durab'] == 0){
+//             $id = $result['id'];
+//             $pwr =random_int(1,100);
+
+//             $query = "UPDATE superhero
+//                       SET durab = $pwr
+//                       WHERE id = $id
+//                       ";
+
+
+//         if ($db_connection->exec($query)) {
+//             echo "Updated";
+//         } else {
+//             echo "failed to update";
+//         }
+//             echo $result['naam'] . "no points";
+//             echo "<br>";
+//         }else {
+//             echo $result['naam'];
+//             echo "<br>";
+//         }
+
+        
+//     }
+// } else {
+//     echo  "no results";
+// }
+
+
+
+$db_connection = null;
+
+
+require_once("db_config.php");
+
+$query = " SELECT * FROM superhero";
+
+if ($results = $db_connection->query($query)) {
+    $count = 0;
+    foreach ($results as $result) {
+
+        
+        $img = $result['foto'];
+        $url = $img;
+        $arraytje = get_headers($url, 1);
+
+    
+
+        if ($arraytje[0] == "HTTP/1.1 404 Not Found"){
+           echo "NOT FOUND: " . $url . " " .  $result['naam'];
+           echo "<br>";
+           $count++;
+
+       }
+
+    }
+
+        echo $count;
+
+}
+
+
+
+
+$db_connection = null;
+
+
+
+
+
+
+
+?>
+
 
