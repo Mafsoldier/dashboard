@@ -36,6 +36,9 @@
 <body>
 
     <div class="containerHeader">
+    <div class="headerItem">
+            <a href="../login.php" class="login"> Login </a>
+        </div>
         <div class="headerItem">
             <h1> You've lost: <?php echo $_SESSION['pcWins'];?> times! </h1>
         </div>
@@ -95,7 +98,7 @@
             }
 
          };
-        
+         
         ?>
     </div>
 
