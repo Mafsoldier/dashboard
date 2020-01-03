@@ -1,12 +1,51 @@
-<?php
 
-//api key van superheroes database
-$apiKey = "2918698538154268";
-// url inclusief de api key
-$url = "https://superheroapi.com/api/$apiKey/";
+<?php
+require_once("db_config.php");
+
+// vraag de naam van de superhero op
+function getRandomSuperHero(){
+    global $db_connection;
+    $id = random_int(1,700);
+    $query = " SELECT * 
+               FROM superhero
+               WHERE id = $id
+            ";
+
+    if ($results = $db_connection->query($query)) {
+
+        foreach ($results as $result) {
+
+                $id = $result['id'];
+                $name = $result['naam'];
+                $foto = $result['foto'];
+                $intelligence = $result['intelligence'];
+                $speed = $result['speed'];
+                $strength = $result[ 'strength'];
+                $combat = $result['combat'];
+                $durab = $result['durab'];
+                $pwr = $result['pwr'];
+                $overallPower = overallPower($strength, $intelligence, $speed, $durab, $pwr, $combat);
+
+            return [
+
+                'id'            => $id,
+                'naam'          => $name,
+                'foto'          => $foto,
+                'intelligence'  => $intelligence,
+                'speed'         => $speed,
+                'strength'      => $strength,
+                'combat'        => $combat,
+                'durab'         => $durab,
+                'pwr'           => $pwr,
+                'overallPower'  => $overallPower,
+            ];
+            
+        }
+    }
+}
 
 // deze functie roept alle functies aan
-  function init(){
+function init(){
     return [
       'superHeroLeft' => getRandomSuperHero(),
       'superHeroRight' => getRandomSuperHero(),
@@ -14,55 +53,10 @@ $url = "https://superheroapi.com/api/$apiKey/";
   }
 
 
-  // snelle check om te kijken wat er in de array zit die we terug krijgen
-  function getVarDump(){
-
-    echo "<pre>";
-    var_dump($array); 
-  }
-
-
-  // maakt een random getal die het id van de superhero moet voorstellen. database gaat tot 731 superheroes en vanaf 1.
-  function getRandomSuperHeroId(){
-    
-    $min = 1;
-    $max = 731;
-    $heroId = rand($min, $max);
-    return $heroId;
-  }
-
-    // vraag de naam van de superhero op
-  function getRandomSuperHero(){
-    
-      $heroId = getRandomSuperHeroId();
-      global $url;
-      $json = file_get_contents($url . $heroId);
-      $array = json_decode($json, true);
-      $name = $array['name'];
-      $image = $array['image']['url'];
-      $strength = $array['powerstats']['strength'];
-      $intelligence = $array['powerstats']['intelligence'];
-      $speed = $array['powerstats']['speed'];
-      $durability = $array['powerstats']['durability'];
-      $power = $array['powerstats']['power'];
-      $combat = $array['powerstats']['combat'];
-      $overallPower = overallPower($strength, $intelligence, $speed, $durability, $power, $combat);
-   
-            //zo return je een array... 
-      return [
-        'name' => $name,
-        'image' => $image,
-        'heroId' => $heroId,
-        'overallPower' => $overallPower,
-      ];
-  }
-
   function whoWins($superHeroes){
 
-      $superHeroLeftPoints = $superHeroes['superHeroLeft']['name'];
-      $superHeroRightPoints = $superHeroes['superHeroRight']['name'];
-
-      // var_dump($superHeroes);
+      $superHeroLeftPoints = $superHeroes['superHeroLeft']['overallPower'];
+      $superHeroRightPoints = $superHeroes['superHeroRight']['overallPower'];
 
       if ($superHeroLeftPoints == $superHeroRightPoints){
 
@@ -76,7 +70,7 @@ $url = "https://superheroapi.com/api/$apiKey/";
 
   }
 
-function overallPower($strength, $intelligence, $speed, $durability, $power, $combat) {
+function overallPower($strength, $intelligence, $speed, $durab, $pwr, $combat) {
   $sum = 0;
   $arguments = func_get_args();
   
@@ -93,9 +87,10 @@ function overallPower($strength, $intelligence, $speed, $durability, $power, $co
 }
 
 function resetScores(){
+  session_start();
   $_SESSION['playerWins'] = 0;
   $_SESSION['pcWins'] = 0;
-  return $whoWins = " ";
+  $_SESSION['whoWins'] = " ";
 }
 
 function pcWins(){

@@ -1,47 +1,24 @@
 <?php 
     require("../superHero.php");
+    session_start();
 
+    if(isset($_SESSION['whoWins'])){
 
     // De functies aanroepen die we nodig hebben
     $superheroes = init();
     $result = whoWins($superheroes);
-    $whoWins = '';
-    
-    session_start();
-    // check if the page is refreshed
-    $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
-    
-    if (!isset($_SESSION['playerWins']) || !isset($_SESSION['pcWins'])){
-                $whoWins = resetScores();
-    }
+    $_SESSION['result'] = $result;
+}else {
 
-   
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $_SESSION['pcWins'] = 0;
+    $_SESSION['playerWins'] = 0;
+    $_SESSION['whoWins'] = " ";
+    $superheroes = init();
+    $result = whoWins($superheroes);
+    $_SESSION['result'] = $result;
 
-        if ($is_page_refreshed){
-                $whoWins = resetScores();
-        }elseif ($_POST['value'] == 'reset'){
-                $whoWins = resetScores();
-        }else {
-
-            if ($_POST['value'] == 1) {
-                if($_POST['winner'] == 1){
-                    $whoWins = playerWins();
-                }else {
-                    $whoWins = pcWins();
-                }
-                
-            }elseif($_POST['value'] == 2) {
-                if($_POST['winner'] == 2){
-                    $whoWins = playerWins();
-                }else {
-                    $whoWins = pcWins();
-                }
-            }else {
-                $whoWins = "Wow! it was a draw!";
-                }
-        }
 }
+    
 ?>
 
 <!DOCTYPE html>
@@ -78,38 +55,38 @@
             if ($count == 1){  
         ?>
         
-        <form class="heroBox" action="#" method="post">  
+        <form class="heroBox" action="../process.php" method="post">  
             <div class="itemHeroBox">
-                <input class="button" type="submit" value="Ik kies <?php echo $superHero['name'];?>"> 
+                <input class="button" type="submit" value="Ik kies <?php echo $superHero['naam'];?>"> 
             </div> 
             <div class="itemHeroBox">
                 <input type="hidden" name='value'; value= <?php echo $count; ?>>  
                 <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
-                <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
+                <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img>    
             </div>     
         </form> 
         
-        <form action='#' method='post'> 
+        <form action='../process.php' method='post'> 
             <div class="itemHeroBox whoWin"> 
                 <input type="hidden" name='value' value='reset'> 
                 <input class="button" type="submit" value="Reset">
-                <h1> <?php echo $whoWins; ?> </h1>  
+                <h1> <?php echo $_SESSION['whoWins']; ?> </h1>  
             </div>
         </form>
 
         <?php
             }else { 
         ?>
-            <form class="heroBox" action="#" method="post">  
+            <form class="heroBox" action="../process.php" method="post">  
                 <!-- <div class="heroBox itemContainerContent"> -->
                 <div class="itemHeroBox">
-                    <input class="button" type="submit" value="Ik kies <?php echo $superHero['name'];?>"> 
+                    <input class="button" type="submit" value="Ik kies <?php echo $superHero['naam'];?>"> 
                 </div> 
                 <div class="itemHeroBox">
                                 <!--call superhero image and make it a button to submit-->
                     <input type="hidden" name='value'; value= <?php echo $count; ?>>  
                     <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
-                    <img class="img" src= <?php echo $superHero['image']; ?> alt="No image">  </img>    
+                    <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img>    
                 </div>     
    
             </form> 
