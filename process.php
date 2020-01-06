@@ -1,9 +1,7 @@
 <?php
 
 include_once('superHero.php');
-
 session_start();
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
