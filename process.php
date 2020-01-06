@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if ($_POST['value'] == 'reset'){
         $whoWins = resetScores();
+        header("Location: main/index.php");
         
     }else {
         if($_POST){
@@ -20,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['whoWins'] = "You've lost!";
             }
         }
+        header("Location: heroClash.php"); 
     }
-    header("Location: main/index.php"); 
+   
 }
 

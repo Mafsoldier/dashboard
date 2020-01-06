@@ -2,34 +2,29 @@
     margin:0;
     padding:0;
 }
-
+html {
+        height: 100%
+}
 body {
     display: flex;
     flex-direction: column;
     background: whitesmoke; 
 }
-
 /* Alles over de header container */
-
 .containerHeader{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     background: olive;
     flex-grow: 3;
-    justify-content: center;
-    
+    justify-content: center; 
 }
-
 .headerItem {
     flex-grow: 1;
     align-self: center;
     justify-self: center;
     text-align: center;
-    
 }
-
-
 /* Alles over de Contentcontainer */
 .containercontent{
     display: flex;
@@ -37,32 +32,23 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-content: center;
-    text-align: center;
-    
+    text-align: center; 
 }
-
 .itemHeroBox{
     flex-basis: 300px;
     margin-top: 20px;
-
-
 }
 .whoWin{
     text-align: center;
     background: whitesmoke;
     vertical-align: center;
-
 }
-
 img {
     max-height: 500px;
     max-width: 100%;
     border-radius: 50%;
-
 }
-
 .button {
-    
     background-color: transparent;
     color: black;
     font-size: 16px;
@@ -72,7 +58,6 @@ img {
     border-radius: 5px;
     margin: 10px;
   }
-  
 .button:hover {
     background-color: black;
     color: white;
@@ -82,29 +67,89 @@ img {
     cursor: crosshair;
     border-radius: 5px;
   } 
-
-
-
-
 /* Alles over de footer container */
 .containerFooter{
     background: red;
-    flex-grow: 1;
-      
+    flex-grow: 1;  
 }
-
-
-
 /* Overige */
-
 h1 {
     white-space: nowrap;
     overflow: hidden;
     margin: 5px;
 }
-
 .login {
     text-align: left;
     text-decoration: solid;
 }
+.elementLeft {
+    background: red;
+    position: relative;
+    animation: left 1s 5;
+    animation-direction: alternate;
+    /* animation: pulse 5s infinite; */
+    max-height: 500px;
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  @keyframes left {
+    0%   {transform: rotate( 0deg);}
+    25%  {transform: rotate( 90deg);}
+    50%  {transform: rotate( 180deg);}
+    75%  {transform: rotate( 270deg);}
+    100% {transform: rotate( 360deg);}
+    from {
+    margin-right: 40%;
+}
+to {
+    margin-right: 0%;
+}
+  }
+  .elementRight {
+    background: red;
+    position: relative;
+    animation: right 1s 5;
+    animation-direction: alternate;
+    /* animation: pulse 5s infinite; */
+    max-height: 500px;
+    max-width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  @keyframes right {
+    0%   {transform: rotate( 0deg);}
+    25%  {transform: rotate( 90deg);}
+    50%  {transform: rotate( 180deg);}
+    75%  {transform: rotate( 270deg);}
+    100% {transform: rotate( 360deg);}
 
+  }
+
+
+.backgrounderimage {
+        background-image:url("main/images/explosion.gif");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+  
+  /* @keyframes pulse {
+    0% {
+      background-color: #001F3F;
+    }
+    100% {
+      background-color: #FF4136;
+    }
+  } */
+
+  /* @keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+} */

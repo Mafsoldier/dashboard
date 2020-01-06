@@ -27,7 +27,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Superheroes</title>
         <link rel="stylesheet" href="style.css" type="text/css">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         
@@ -65,7 +65,8 @@
             <div class="itemHeroBox">
                 <input type="hidden" name='value'; value= <?php echo $count; ?>>  
                 <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
-                <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img>    
+                <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img> 
+                <?php $_SESSION['firstHeroUrl'] = $superHero['foto']; ?>   
             </div>     
         </form> 
         
@@ -89,7 +90,8 @@
                                 <!--call superhero image and make it a button to submit-->
                     <input type="hidden" name='value'; value= <?php echo $count; ?>>  
                     <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
-                    <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img>    
+                    <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img> 
+                    <?php $_SESSION['secondHeroUrl'] = $superHero['foto']; ?>    
                 </div>     
    
             </form> 
