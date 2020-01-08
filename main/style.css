@@ -2,20 +2,39 @@
     margin:0;
     padding:0;
 }
-html {
-        height: 100%
-}
-body {
+
+html, body {
+    height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    background: whitesmoke; 
+ 
 }
+.wrapper {
+    min-height: 100%;
+    background: whitesmoke;
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -100px;
+}
+.footer,
+.push {
+    height: 50px;
+}
+
+.footer{
+  background: olivedrab;
+  height: 75px;
+  border-top: black solid;
+}
+
 /* Alles over de header container */
 .containerHeader{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     background: olive;
+    border-bottom: black solid;
     flex-grow: 3;
     justify-content: center; 
 }
@@ -67,11 +86,7 @@ img {
     cursor: crosshair;
     border-radius: 5px;
   } 
-/* Alles over de footer container */
-.containerFooter{
-    background: red;
-    flex-grow: 1;  
-}
+
 /* Overige */
 h1 {
     white-space: nowrap;
@@ -81,119 +96,81 @@ h1 {
 .login {
     text-align: left;
     text-decoration: solid;
+    color: black;
 }
+.login:hover {
+
+  color: white;
+}
+
+
 .elementLeft {
-    background: red;
-    position: absolute;
-    animation: left 1s 5;
-    animation-direction: alternate;
-    /* animation: pulse 5s infinite; */
-    max-height: 500px;
-    max-width: 100%;
-    border-radius: 50%;
-  }
+  background: red;
+  position: absolute;
+  animation: left 1s 5;
+  animation-direction: alternate;
+  max-height: 500px;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
   @keyframes left {
-    0%   {transform: rotate( 0deg);}
-    25%  {transform: rotate( 90deg);}
-    50%  {transform: rotate( 180deg);}
-    75%  {transform: rotate( 270deg);}
-    100% {transform: rotate( 360deg);}
-    from {
-    margin-right: 40%;
-}
-to {
-    margin-right: 0%;
-}
-  }
-  .elementRight {
-    background: red;
-    position: absolute;
-    animation: right 1s 5;
-    animation-direction: reverse;
-    /* animation: pulse 5s infinite; */
-    max-height: 500px;
-    max-width: 100%;
-    border-radius: 50%;
-    z-index: -1;
-  }
-  /* @keyframes right {
-    0%   {transform: rotate( 0deg);}
-    25%  {transform: rotate( 90deg);}
-    50%  {transform: rotate( 180deg);}
-    75%  {transform: rotate( 270deg);}
-    100% {transform: rotate( 360deg);}
-
-  } */
-
-  @keyframes right {
-	
     0% {
-      
-      /* transform: rotate( 0deg); */
-    }
-    
-    1% {
       transform: translateX(10px) rotate(0deg);
-      
     }
-
     25% {
-      
-      /* transform: rotate( 90deg); */
-    }
-    26% {
       transform: translateX(25px);
-      
     }
- 
     50% {
-      
-      /* transform: rotate( 180deg); */
-    }
-    51% {
       transform: translateX(50px) rotate( 180deg);
-      
     }
-    
     75% {
       transform: translateX(100px);
-      /* transform: rotate( 270deg); */
     }
-    
     100% {
-      transform: translateX(150px) rotate(360deg);
-      /* transform: rotate( 360deg);  */
+      transform: translateX(250px) rotate(360deg);
     }
-    
+}
+
+.elementRight {
+  background: red;
+  position: absolute;
+  animation: right 1s 5;
+  animation-direction: reverse;
+  max-height: 500px;
+  max-width: 100%;
+  border-radius: 50%;
+  /* z-index: -1; */
+}
+
+@keyframes right {
+  0% {
+      transform: translateX(10px) rotate(0deg);
   }
-
-
-
+  25% {
+      transform: translateX(25px);
+  }
+  50% {
+      transform: translateX(50px) rotate( 180deg);
+  } 
+  75% {
+      transform: translateX(100px);
+  }
+  100% {
+      transform: translateX(250px) rotate(360deg);
+  }
+}
 
 .backgrounderimage {
         background-image:url("explosion.gif");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-    }
+  }
 
-  
-  /* @keyframes pulse {
-    0% {
-      background-color: #001F3F;
-    }
-    100% {
-      background-color: #FF4136;
-    }
-  } */
 
-  /* @keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-} */
+.footerItem {
+      flex-grow: 1;
+      align-self: center;
+      justify-self: center;
+      text-align: center;
+}

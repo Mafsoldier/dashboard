@@ -35,10 +35,8 @@
 
 <body>
 
+<div class="wrapper">
     <div class="containerHeader">
-    <div class="headerItem">
-            <a href="../login.php" class="login"> Login </a>
-        </div>
         <div class="headerItem">
             <h1> You've lost: <?php echo $_SESSION['pcWins'];?> times! </h1>
         </div>
@@ -67,7 +65,69 @@
                 <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
                 <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img> 
                 <?php $_SESSION['firstHeroUrl'] = $superHero['foto']; ?>   
-            </div>     
+            </div> 
+            <div class="itemHeroBox">
+            <h3>STATS</h3>
+            <?php 
+                    switch(random_int(1,6)){
+                        case (1): 
+                            ?>
+                        <p>Strength     : <?php echo $superHero['strength']; ?> </p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (2):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : <?php echo $superHero['combat']; ?>  </p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (3):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : <?php echo $superHero['durab'];  ?>        </p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (4):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : <?php echo $superHero['speed'];  ?>        </p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (5):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : <?php echo $superHero['intelligence']; ?>  </p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (6):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : <?php echo $superHero['pwr'];     ?>       </p>
+                        <?php break;
+                }
+                    ?>
+            </div>  
+                
         </form> 
         
         <form action='../process.php' method='post'> 
@@ -92,7 +152,69 @@
                     <input type="hidden" name='winner'; value= <?php echo $result; ?>> 
                     <img class="img" src= <?php echo $superHero['foto']; ?> alt="No image">  </img> 
                     <?php $_SESSION['secondHeroUrl'] = $superHero['foto']; ?>    
-                </div>     
+                </div>    
+                <div class="itemHeroBox">
+                    <h3>STATS</h3>
+
+                    <?php 
+                    switch(random_int(1,6)){
+                        case (1): 
+                            ?>
+                        <p>Strength     : <?php echo $superHero['strength']; ?> </p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (2):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : <?php echo $superHero['combat']; ?>  </p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (3):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : <?php echo $superHero['durab'];  ?>        </p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (4):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : <?php echo $superHero['speed'];  ?>        </p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (5):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : <?php echo $superHero['intelligence']; ?>  </p> 
+                        <p>Power        : ?</p>
+                        <?php break;
+                    case (6):
+                        ?>
+                        <p>Strength     : ?</p>
+                        <p>Combat       : ?</p>
+                        <p>Health       : ?</p>
+                        <p>Speed        : ?</p>
+                        <p>Intelligence : ?</p> 
+                        <p>Power        : <?php echo $superHero['pwr'];     ?>       </p>
+                        <?php break;
+                }
+                    ?>
+                </div>  
    
             </form> 
 
@@ -104,5 +226,23 @@
         ?>
     </div>
 
+
+
+    <div>
+  <footer class="push"></footer>
+
+</div>
+    <footer class="footer">     
+        <div class="footerItem">
+            <h1 id="login"><a href="../login.php" class="login"> Login </a></h1> 
+        </div>
+    </footer>
 </body>
 </html>
+
+<!-- <p>Strength     : <?php echo $superHero['strength']; ?>      </p>
+                        <p>Combat       : <?php echo $superHero['combat']; ?>        </p>
+                        <p>Health       : <?php echo $superHero['durab'];  ?>        </p>
+                        <p>Speed        : <?php echo $superHero['speed'];  ?>        </p>
+                        <p>Intelligence : <?php echo $superHero['intelligence']; ?>  </p> 
+                        <p>Power        : <?php echo $superHero['pwr'];     ?>       </p> -->
